@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { trigger, state, style, animate, transition,} from '@angular/animations';
 
@@ -51,20 +51,29 @@ const leftInOut = trigger('leftInOut', [
   animations: [fadeInOut, leftInOut],
   providers: [PruebaService]
 })
-export class NavigationComponent {
+
+
+export class NavigationComponent implements OnInit {
+  
+  public listUsers:any = []
 
   isShow = false;
   mobileSubMenu = false;
   mobileMenu: boolean = true;
 
-  public user: any;
+  constructor(private PruebaService:PruebaService){
 
-  constructor(public pruebasService: PruebaService){
-    
   }
 
-  ngOnInit() {
-    this.pruebasService.getUser();
+  ngOnInit(): void {
+    this.loadUserData();
+  }
+
+  public loadUserData(){
+    this.PruebaService.get('http://localhost:2000/user/users')
+    .subscribe(respuesta => {
+      this.listUsers = respuesta;
+    })
   }
 
   fadeInOutDropdown(): void {
@@ -78,17 +87,5 @@ export class NavigationComponent {
   mobileSubOpen() {
     this.mobileSubMenu = !this.mobileSubMenu;
   }
-
-  /* cargaUsuario (){
-  	this.user = false;
-  	this._peticionesService.getUser().subscribe(
-  		result => {
-  			this.user = result.data;
-  		},
-  		error => {
-  			console.log(<any>error);
-  		}
-  	);
-  } */
 
 }

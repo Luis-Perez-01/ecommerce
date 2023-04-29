@@ -7,17 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class PruebaService {
 
-	public url: string;
+	constructor(private http: HttpClient) {	}
 
-	pokemon: any;
-
-	constructor(private http: HttpClient) {
-		this.url = "localhost:2000";
-	}
-
-	getUser() {
-		this.http.get("https://pokeapi.co/api/v2/pokemon").subscribe((data) => {
-			this.pokemon = data;
-		});
+	public get(url:string) {
+		return this.http.get(url);
 	}
 }

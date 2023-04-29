@@ -239,10 +239,9 @@
   </div>
 </header>
 
-<!-- <div>
-  <button (click)="cargaUsuario()">Button</button>
-	<h2>{{user.name + ' ' + user.last_name}}</h2>
-</div> -->
-<div *ngIf="pokemon">
-  <h2>{{pokemon}}</h2>
+<div *ngIf="listUsers">
+  <h2>Lista de usuarios:</h2>
+  <ul>
+    <li *ngFor="let user of listUsers">{{ user.name + ' ' + user.last_name }}</li>
+  </ul>
 </div>
