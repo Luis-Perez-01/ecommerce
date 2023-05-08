@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 
 import { trigger, state, style, animate, transition,} from '@angular/animations';
-
-import { PruebaService } from 'src/app/prueba.service';
+import { ThemeServiceService } from 'src/app/theme-service.service';
 
 const fadeInOut = trigger('fadeInOut', [
   state(
@@ -44,37 +43,27 @@ const leftInOut = trigger('leftInOut', [
   transition('close => open', [animate('200ms ease-in', style({ left: '0%' }))]),
 ]);
 
+
+
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css'],
   animations: [fadeInOut, leftInOut],
-  providers: [PruebaService]
 })
 
 
 export class NavigationComponent implements OnInit {
-  
-  public listUsers:any = []
 
+
+  ngOnInit() {
+    
+  }
+  
   isShow = false;
   mobileSubMenu = false;
   mobileMenu: boolean = true;
-
-  constructor(private PruebaService:PruebaService){
-
-  }
-
-  ngOnInit(): void {
-    this.loadUserData();
-  }
-
-  public loadUserData(){
-    this.PruebaService.get('http://localhost:2000/user/users')
-    .subscribe(respuesta => {
-      this.listUsers = respuesta;
-    })
-  }
+  mobileUMenu = true;
 
   fadeInOutDropdown(): void {
     this.isShow = !this.isShow;
@@ -84,8 +73,23 @@ export class NavigationComponent implements OnInit {
     this.mobileMenu = !this.mobileMenu;
   }
 
+  mobileUser() {
+    this.mobileUMenu = !this.mobileUMenu;
+  }
+
   mobileSubOpen() {
     this.mobileSubMenu = !this.mobileSubMenu;
+  }
+
+  isDarkMode = false;
+
+  constructor(private themeServiceService: ThemeServiceService) {
+    this.isDarkMode = this.themeServiceService.isDarkModeEnabled();
+  }
+
+  toggleDarkMode() {
+    this.themeServiceService.toggleDarkMode();
+    this.isDarkMode = this.themeServiceService.isDarkModeEnabled();
   }
 
 }
