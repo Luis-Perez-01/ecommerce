@@ -215,19 +215,19 @@
                 </div>
                 <ul class="py-1" role="none">
                     <li>
-                        <a href="#"
+                        <a routerLink="/perfil/detalle"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                            role="menuitem">Dashboard</a>
+                            role="menuitem">Perfil</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a routerLink="/perfil/compras"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                            role="menuitem">Settings</a>
+                            role="menuitem">Mis compras</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a routerLink="/perfil/favoritos"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                            role="menuitem">Earnings</a>
+                            role="menuitem">Favoritos</a>
                     </li>
                     <li>
                         <a href="#"
@@ -332,10 +332,12 @@
                         </div>
                         <div class="mt-2 space-y-2" id="disclosure-1" [@fadeInOut]="!mobileUMenu ? 'open' : 'close'"
                             [ngClass]="{'hidden': mobileUMenu}">
-                            <a href=""
+                            <a routerLink="/perfil/detalle" (click)="mobileMOpen()"
                                 class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 dark:text-white hover:bg-custom-400">Perfil</a>
-                            <a href=""
-                                class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 dark:text-white hover:bg-custom-400">Dashboard</a>
+                            <a routerLink="/perfil/compras" (click)="mobileMOpen()"
+                                class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 dark:text-white hover:bg-custom-400">Mis compras</a>
+                            <a routerLink="/perfil/favoritos" (click)="mobileMOpen()"
+                                class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 dark:text-white hover:bg-custom-400">Favoritos</a>
 
                             <form method="POST" action="">
                                 <a href=""

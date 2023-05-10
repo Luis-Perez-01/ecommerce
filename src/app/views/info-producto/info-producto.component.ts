@@ -15,7 +15,7 @@ export class InfoProductoComponent {
     price: 21999,
     oldPrice: 23999,
     sku: '01324',
-    stock: 99,
+    stock: 10,
     tags: [
       'PC GAMER',
       'OFERTA',
@@ -95,7 +95,7 @@ export class InfoProductoComponent {
     price: 21999,
     oldPrice: 23999,
     sku: '01324',
-    stock: 99,
+    stock: 10,
     tags: [
       'PC GAMER',
       'OFERTA',
@@ -114,4 +114,21 @@ export class InfoProductoComponent {
     this.selectedImageIndex = index;
   }
 
+  cantidad: number = 1;
+
+  restar(){
+    if(this.cantidad <= 0){
+      this.cantidad = this.cantidad = 0;
+    }else{
+      this.cantidad = this.cantidad-1
+    }
+  }
+
+  sumar(){
+    if(this.cantidad >= this.items[0].stock){
+      this.cantidad = this.cantidad;
+    }else{
+    this.cantidad = this.cantidad+1;
+    }
+  }
 }

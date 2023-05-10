@@ -15,6 +15,12 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { InfoProductoComponent } from './views/info-producto/info-producto.component';
 import { PerfilComponent } from './views/perfil/perfil.component';
+import { ComprasComponent } from './components/compras/compras.component';
+import { DetalleCompraComponent } from './components/detalle-compra/detalle-compra.component';
+import { FavoritosComponent } from './components/favoritos/favoritos.component';
+import { DetallePerfilComponent } from './components/detalle-perfil/detalle-perfil.component';
+import { DatosEnvioComponent } from './components/datos-envio/datos-envio.component';
+import { PagosFacturasComponent } from './components/pagos-facturas/pagos-facturas.component';
 
 
 @NgModule({
@@ -28,7 +34,13 @@ import { PerfilComponent } from './views/perfil/perfil.component';
     ProductosComponent,
     CarouselComponent,
     InfoProductoComponent,
-    PerfilComponent
+    PerfilComponent,
+    ComprasComponent,
+    DetalleCompraComponent,
+    FavoritosComponent,
+    DetallePerfilComponent,
+    DatosEnvioComponent,
+    PagosFacturasComponent
   ],
   imports: [
     BrowserModule,
